@@ -1,4 +1,4 @@
-import 'package:csi_library/widgets/apptext.dart';
+
 import 'package:flutter/material.dart';
 
 class ProductCard extends StatelessWidget {

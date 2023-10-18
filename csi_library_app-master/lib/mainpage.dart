@@ -24,7 +24,7 @@ class _MainPageState extends State<MainPage> {
   List<ProductTile> productcards =[
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
      genre: 'Management', author: 'Antonio Bonabeno', text: 'Show Your Work'),
-    const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
+    const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/c249ad111184009.5ffd5f54b941c.jpg',
      genre: 'Management1', author: 'Antonio Bonabeno', text: 'Show Your Work'),
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
      genre: 'Management2', author: 'Antonio Bonabeno', text: 'Show Your Work'),
@@ -209,6 +209,7 @@ Container(
                 context,
                 MaterialPageRoute(
                   builder: (context) => BookPage(productTile: productcards[index]),
+                
                 ),
                   );
                 },

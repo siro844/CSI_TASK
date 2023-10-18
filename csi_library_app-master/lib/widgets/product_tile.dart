@@ -41,9 +41,9 @@ class _ProductTileState extends State<ProductTile> {
         Padding(
           padding: const EdgeInsets.only(left: 10),
             child: IconButton(onPressed: (){
-              setState(() {
-                Navigator.push(context,MaterialPageRoute(builder: (context) =>const BookPage()));
-              });
+              // setState(() {
+              //   Navigator.push(context,MaterialPageRoute(builder: (context) =>));
+              // });
             }, icon: const Icon(Icons.arrow_forward_ios)),
         ),
           

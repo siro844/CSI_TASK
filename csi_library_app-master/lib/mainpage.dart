@@ -1,3 +1,4 @@
+import 'package:csi_library/BookPage.dart';
 import 'package:csi_library/widgets/apptext.dart';
 import 'package:csi_library/widgets/product_card.dart';
 import 'package:csi_library/widgets/product_tile.dart';
@@ -24,11 +25,11 @@ class _MainPageState extends State<MainPage> {
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
      genre: 'Management', author: 'Antonio Bonabeno', text: 'Show Your Work'),
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
-     genre: 'Management', author: 'Antonio Bonabeno', text: 'Show Your Work'),
+     genre: 'Management1', author: 'Antonio Bonabeno', text: 'Show Your Work'),
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
-     genre: 'Management', author: 'Antonio Bonabeno', text: 'Show Your Work'),
+     genre: 'Management2', author: 'Antonio Bonabeno', text: 'Show Your Work'),
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
-     genre: 'Management', author: 'Antonio Bonabeno', text: 'Show Your Work'),
+     genre: 'Management3', author: 'Antonio Bonabeno', text: 'Show Your Work'),
 
   ];
 
@@ -148,24 +149,18 @@ Container(
                         itemBuilder: ((context, index){
                             return Padding(
                               padding: const EdgeInsets.symmetric(horizontal:16.0),
-                              child: GestureDetector(
-                                onTap: (){
-                                  setState(() {
-                                    currentindex=index;
-                                  });
-                                },
-                                child: Column(
-                                  children: [
-                                     Text(
-                                  menu[index],
-                                  style: TextStyle(fontSize: 20,
-                                  color: currentindex==index? Colors.white :Colors.grey.shade400 ,
-                                  // decoration:   currentindex == index ?TextDecoration.underline:TextDecoration.none,
-                                  // decorationStyle: TextDecorationStyle.solid,
-                                  // decorationColor: Colors.white,
-                                  fontFamily:'PlayfairDisplay',),
-                                                      ),
-                                 Container(
+                              child: Column(
+                                children: [
+                                   Text(
+                                menu[index],
+                                style: TextStyle(fontSize: 20,
+                                color: currentindex==index? Colors.white :Colors.grey.shade400 ,
+                                // decoration:   currentindex == index ?TextDecoration.underline:TextDecoration.none,
+                                // decorationStyle: TextDecorationStyle.solid,
+                                // decorationColor: Colors.white,
+                                fontFamily:'PlayfairDisplay',),
+                                                    ),
+                               Container(
                             margin: const EdgeInsets.only(bottom: 2),
                             height: 5,
                             width: index==currentindex?20:0,
@@ -174,12 +169,10 @@ Container(
                               color: index==currentindex?Colors.white:Colors.grey.shade400.withOpacity(0.1),
                             ),
                           ),
-                                  
-                                 
-                                      
-                                  ],
-                                )
-                                     
+                                
+                               
+                                    
+                                ],
                               ),
                             );
                     } ),
@@ -210,7 +203,17 @@ Container(
               itemCount: productcards.length,
               itemBuilder: (context,index){
                 ProductTile productTile = productcards[index];
-               return ProductTile(image: productTile.image, genre:productTile.genre, author: productTile.author, text:productTile.text);
+               return GestureDetector(
+                onTap: (){
+                  Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => BookPage(productTile: productcards[index]),
+                ),
+                  );
+                },
+                child:
+               ProductTile(image: productTile.image, genre:productTile.genre, author: productTile.author, text:productTile.text),);
             }),
           ),
         ),

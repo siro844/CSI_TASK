@@ -15,7 +15,7 @@ class ProductCard extends StatelessWidget {
         Container(
           height: 200,
           width: 225,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
+          //decoration: BoxDecoration(borderRadius: BorderRadius.circular(12)),
           child: ClipRRect(
             borderRadius: const BorderRadius.only(topLeft: Radius.circular(12),topRight: Radius.circular(12)),
             child: Column(

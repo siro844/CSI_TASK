@@ -12,6 +12,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+
   List<ProductCard> products=[
     const ProductCard(image:'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg' , genre: 'Art', title: 'Gestalt'),
     const ProductCard(image:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/c249ad111184009.5ffd5f54b941c.jpg' , genre: 'Design', title: 'Modern Design'),
@@ -24,11 +25,11 @@ class _MainPageState extends State<MainPage> {
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
      genre: 'Management', author: 'Antonio Bonabeno', text: 'Show Your Work'),
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/c249ad111184009.5ffd5f54b941c.jpg',
-     genre: 'Management1', author: 'Antonio Bonabeno', text: 'Show Your Work'),
+     genre: 'Art', author: 'Antonio Bonabeno', text: 'Show Your Work'),
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
-     genre: 'Management2', author: 'Antonio Bonabeno', text: 'Show Your Work'),
+     genre: 'Buisness', author: 'Antonio Bonabeno', text: 'Show Your Work'),
     const ProductTile(image: 'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
-     genre: 'Management3', author: 'Antonio Bonabeno', text: 'Show Your Work'),
+     genre: 'Craft', author: 'Antonio Bonabeno', text: 'Show Your Work'),
 
   ];
 
@@ -39,7 +40,17 @@ class _MainPageState extends State<MainPage> {
     'Craft',
     'Design',
   ];
+   List<ProductTile> selectedProducts=[];
 
+  String selectedMenu = 'Popular';
+
+  List<ProductTile> getFilteredProductTiles(String menu) {
+    if (menu == 'Popular') {
+      return productcards;
+    } else {
+      return productcards.where((element) => element.genre == menu).toList();
+    }
+  }
  int currentindex=0;
 
   @override
@@ -146,6 +157,7 @@ Container(
                         itemCount: menu.length,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: ((context, index){
+                        
                             return Padding(
                               padding: const EdgeInsets.symmetric(horizontal:16.0),
                               child: Column(
@@ -154,6 +166,8 @@ Container(
                                         onTap: (){
                                           setState(() {
                                             currentindex = index;
+                                            selectedMenu=menu[currentindex];
+                                            
                                           });
                                         },
                                  child :  Text(
@@ -207,9 +221,10 @@ Container(
             child: ListView.builder(
 
               scrollDirection: Axis.vertical,
-              itemCount: productcards.length,
+              itemCount:getFilteredProductTiles(selectedMenu).length,
               itemBuilder: (context,index){
-                ProductTile productTile = productcards[index];
+                  List<ProductTile> selectedProducts = getFilteredProductTiles(selectedMenu);
+                ProductTile productTile = selectedProducts[index];
                return GestureDetector(
                 onTap: (){
                   Navigator.push(

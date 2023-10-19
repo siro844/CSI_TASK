@@ -12,7 +12,6 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _currentindex=0;
   List<ProductCard> products=[
     const ProductCard(image:'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg' , genre: 'Art', title: 'Gestalt'),
     const ProductCard(image:'https://mir-s3-cdn-cf.behance.net/project_modules/max_3840/c249ad111184009.5ffd5f54b941c.jpg' , genre: 'Design', title: 'Modern Design'),
@@ -151,15 +150,23 @@ Container(
                               padding: const EdgeInsets.symmetric(horizontal:16.0),
                               child: Column(
                                 children: [
-                                   Text(
+                                      GestureDetector(
+                                        onTap: (){
+                                          setState(() {
+                                            currentindex = index;
+                                          });
+                                        },
+                                 child :  Text(
                                 menu[index],
                                 style: TextStyle(fontSize: 20,
                                 color: currentindex==index? Colors.white :Colors.grey.shade400 ,
                                 // decoration:   currentindex == index ?TextDecoration.underline:TextDecoration.none,
-                                // decorationStyle: TextDecorationStyle.solid,
-                                // decorationColor: Colors.white,
+                                //  decorationStyle: TextDecorationStyle.solid,
+                                //  decorationColor: Colors.white,
                                 fontFamily:'PlayfairDisplay',),
                                                     ),
+                                      ),
+
                                Container(
                             margin: const EdgeInsets.only(bottom: 2),
                             height: 5,
@@ -214,7 +221,9 @@ Container(
                   );
                 },
                 child:
-               ProductTile(image: productTile.image, genre:productTile.genre, author: productTile.author, text:productTile.text),);
+               ProductTile(image: productTile.image, genre:productTile.genre, author: productTile.author, text:productTile.text),
+               )
+               ;
             }),
           ),
         ),

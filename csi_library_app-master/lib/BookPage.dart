@@ -26,7 +26,7 @@ class _BookPageState extends State<BookPage> {
 
              child :GestureDetector(
               onTap: (){
-                print('jii');
+                print('hii');
                   Navigator.pop(context);
               },
               child: const Icon(Icons.arrow_back_ios,color: Colors.white,),
@@ -74,59 +74,59 @@ class _BookPageState extends State<BookPage> {
         color: Colors.black,
        ),
        ),
-       SizedBox(height: 10,),
+       const SizedBox(height: 10,),
        Container(height: 20,width:100,color: Colors.green,),
-       SizedBox(height: 25,),
+       const SizedBox(height: 25,),
 
-       Container(
-        child: const Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-                Column(
+       const Row(
+         mainAxisAlignment: MainAxisAlignment.center,
+       children: [
+               Column(
+                 children: [
+                       AppText(text: '130',color: Colors.black,size: 20,),
+                       Text('Pages',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w300),)
+                 ],
+               ),
+                Padding(padding: EdgeInsets.only(left: 16,right: 16),
+                child: Text('|',
+         style: TextStyle(
+           fontSize: 35,
+        fontWeight: FontWeight.w100,
+          color: Colors.black,
+       ),
+                 ),),
+                 
+               Column(
                   children: [
-                        AppText(text: '130',color: Colors.black,size: 20,),
-                        Text('Pages',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w300),)
-                  ],
-                ),
-                 Padding(padding: EdgeInsets.only(left: 16,right: 16),
-                 child: Text('|',
-          style: TextStyle(
-            fontSize: 35,
-         fontWeight: FontWeight.w100,
-           color: Colors.black,
-       ),
-                  ),),
-                  
-                Column(
-                   children: [
-                        AppText(text: 'English',color: Colors.black,size: 20,),
-                        Text('Language',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w300),)
-                  ],
-                ),
+                       AppText(text: 'English',color: Colors.black,size: 20,),
+                       Text('Language',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w300),)
+                 ],
+               ),
 Padding(padding: EdgeInsets.only(left: 16,right: 16),
-                 child: Text('|',
-          style: TextStyle(
-            fontSize: 35,
-         fontWeight: FontWeight.w100,
-           color: Colors.black,
+                child: Text('|',
+         style: TextStyle(
+           fontSize: 35,
+        fontWeight: FontWeight.w100,
+          color: Colors.black,
        ),
-                  ),),
-                Column(
-                   children: [
-                        AppText(text: '2018',color: Colors.black,size: 20,),
-                        Text('Release',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w300),)
-                  ],
-                ),
+                 ),),
+               Column(
+                  children: [
+                       AppText(text: '2018',color: Colors.black,size: 20,),
+                       Text('Release',style: TextStyle(fontSize: 16,fontWeight: FontWeight.w300),)
+                 ],
+               ),
 
-        ],
-       ),
+       ],
        ),
     const SizedBox(height: 15,),
        Container(height: 100, width: 300,color: Colors.green,),
         const SizedBox(height: 25,),
 
     
-    ElevatedButton(onPressed: (){},
+    ElevatedButton(onPressed: (){
+      print('hii');
+    },
      child: AppText(text: 'Borrow',size: 20,),
      style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.green),fixedSize: MaterialStatePropertyAll(Size(225, 50))),
      ),

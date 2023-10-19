@@ -2,6 +2,8 @@ import 'package:csi_library/mainpage.dart';
 import 'package:csi_library/widgets/apptext.dart';
 import 'package:csi_library/widgets/product_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_lorem/flutter_lorem.dart';
+
 
 class BookPage extends StatefulWidget {
   final ProductTile productTile;
@@ -75,7 +77,18 @@ class _BookPageState extends State<BookPage> {
        ),
        ),
        const SizedBox(height: 10,),
-       Container(height: 20,width:100,color: Colors.green,),
+       const Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(Icons.star,color: Colors.amber,),
+          Icon(Icons.star,color: Colors.amber,),
+          Icon(Icons.star,color: Colors.amber,),
+          Icon(Icons.star,color: Colors.amber,),
+          Icon(Icons.star_half,color: Colors.amber,),
+
+        ],
+       ),
+      // Container(height: 20,width:100,color: Colors.green,),
        const SizedBox(height: 25,),
 
        const Row(
@@ -120,21 +133,46 @@ Padding(padding: EdgeInsets.only(left: 16,right: 16),
        ],
        ),
     const SizedBox(height: 15,),
-       Container(height: 100, width: 300,color: Colors.green,),
-        const SizedBox(height: 25,),
+       Container(
+        height: 100, width: 300,
+        child:  Column(
+          children: [
+            Text( lorem(paragraphs: 1, words: 30),)
+          ],
+        ),
 
-    
-    ElevatedButton(onPressed: (){
-      print('hii');
-    },
-     child: AppText(text: 'Borrow',size: 20,),
-     style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.green),fixedSize: MaterialStatePropertyAll(Size(225, 50))),
-     ),
+        ),
+        const SizedBox(height: 15,),
+
+      Bookmark(),
+   
 
        
       ]
      ),
 
     );
+  }
+}
+class Bookmark extends StatefulWidget {
+  const Bookmark({super.key});
+
+  @override
+  State<Bookmark> createState() => _BookmarkState();
+}
+
+class _BookmarkState extends State<Bookmark> {
+   bool isAdded = false;
+  @override
+  Widget build(BuildContext context) {
+    return  ElevatedButton(
+      onPressed: (){
+        setState(() {
+          isAdded=!isAdded;
+        });
+    },
+     style: const ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.green),fixedSize: MaterialStatePropertyAll(Size(225, 50),),),
+     child: isAdded? const Icon(Icons.done):const AppText(text: 'Bookmark',size: 20,),
+     );
   }
 }

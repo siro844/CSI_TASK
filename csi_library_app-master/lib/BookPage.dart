@@ -45,7 +45,9 @@ class _BookPageState extends State<BookPage> {
                child: Row(
                  children: [
                    IconButton(
-                    onPressed: (){}
+                    onPressed: (){
+                        Navigator.pop(context);
+                    }
                    , icon: const Icon(Icons.arrow_back_ios,color: Colors.white,)),
                    Container(
                     margin: EdgeInsets.only(left: 100),

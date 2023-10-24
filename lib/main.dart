@@ -1,4 +1,5 @@
 import 'package:csi_library/home_page.dart';
+import 'package:csi_library/second_page.dart';
 
 import 'package:flutter/material.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
           'login': (context) => LoginPage(),
           'register': (context) => MyRegister(),
           'homepage': (context) => HomePage(),
+          'secondpage':(context)=>SecondPage(),
         });
   }
 }

@@ -17,7 +17,7 @@ class _MainPageState extends State<MainPage> {
     const ProductCard(
         image:
             'https://mir-s3-cdn-cf.behance.net/project_modules/1400/9d22a671392953.5bc4494680bce.jpg',
-        genre: 'Art',
+        genre: 'Artiyguyig',
         title: 'Gestalt'),
     const ProductCard(
         image:
@@ -163,7 +163,9 @@ class _MainPageState extends State<MainPage> {
                             return ProductCard(
                                 image: product.image,
                                 genre: product.genre,
-                                title: product.title);
+                                title: product.title,
+                                
+                                );
                           }),
                     ),
                   ),
@@ -182,8 +184,9 @@ class _MainPageState extends State<MainPage> {
                               GestureDetector(
                                 onTap: () {
                                   setState(() {
-                                    _currentIndex = index;
-                                    selectedMenu = menu[_currentIndex];
+                                     _currentIndex = index;
+                                     selectedMenu = menu[_currentIndex];
+                                   // Navigator.pushNamed(context, 'secondpage');
                                   });
                                 },
                                 child: Text(
@@ -220,8 +223,8 @@ class _MainPageState extends State<MainPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                decoration: const BoxDecoration(
-                    color: Color.fromRGBO(42, 74, 193, 1)),
+                decoration:
+                    const BoxDecoration(color: Color.fromRGBO(42, 74, 193, 1)),
                 child: Container(
                   width: double.maxFinite,
                   height: 300,

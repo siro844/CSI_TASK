@@ -67,7 +67,9 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 child: Text('Login'),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushNamed(context, 'homepage');
+                },
               ),
               SizedBox(height: 15),
               Text(

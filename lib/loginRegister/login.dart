@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:google_sign_in/google_sign_in.dart';
 import 'My_Textfield.dart';
 
 // class MyLogin extends StatefulWidget {
@@ -102,7 +102,7 @@ class _LoginPageState extends State<LoginPage> {
                   foregroundColor: MaterialStateProperty.all(Colors.black),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, 'homepage');
+                  GoogleSignIn().signIn();
                 },
               ),
             ],

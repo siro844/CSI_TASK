@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "176680107239",
+    "project_id": "test-b146f",
+    "storage_bucket": "test-b146f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:176680107239:android:7d6628cc860bacd86b3642",
+        "android_client_info": {
+          "package_name": "com.example.csi_library"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOfghh7cO_pvNZ3rARbW6tQn1O2RC4hNY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
